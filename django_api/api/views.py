@@ -14,8 +14,8 @@ class TransactionCreateView(APIView):
         if serializer.is_valid():
             serializer.save()
 
-            # --- Lógica de Web3.py para el balance de Goerli ---
-            w3 = Web3(Web3.HTTPProvider(config('INFURA_GOERLI_URL')))
+            infura_url = config('INFURA_GOERLI_URL')
+            w3 = Web3(Web3.HTTPProvider(infura_url))
             balance_wei = w3.eth.get_balance(config('SAMPLE_WALLET_ADDRESS'))
             balance_eth = w3.from_wei(balance_wei, 'ether')
 

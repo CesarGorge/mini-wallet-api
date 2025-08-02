@@ -1,4 +1,5 @@
-version: '3.8'
+# docker-compose.yml
+
 services:
   db:
     image: postgres:15
@@ -9,9 +10,9 @@ services:
       - POSTGRES_DB=cocolabs
       - POSTGRES_USER=coco
       - POSTGRES_PASSWORD=wallet
-      - POSTGRES_HOST_AUTH_METHOD=trust
     ports:
       - "5432:5432"
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -22,10 +23,11 @@ services:
     depends_on:
       - db
     environment:
-      - POSTGRES_DB=cocolabs
-      - POSTGRES_USER=coco
-      - POSTGRES_PASSWORD=wallet
-      - INFURA_GOERLI_URL=https://mainnet.infura.io/v3/c3811ead81154c27adeafb19b0452000
-      - SAMPLE_WALLET_ADDRESS=0x0000000000000000000000000000000000000000
+      - DB_HOST=db
+    env_file:
+      - ./.env
+    dns:
+      - 8.8.8.8
+
 volumes:
   postgres_data:

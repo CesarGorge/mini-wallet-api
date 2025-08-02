@@ -71,21 +71,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wallet_project.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'NAME': 'cocolabs',
+        'USER': 'coco',
+        'PASSWORD': 'wallet',
+        'HOST': config('DB_HOST', default='localhost'),
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
