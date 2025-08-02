@@ -1,0 +1,6 @@
+feat: Initial setup of Django API
+
+This commit introduces the basic structure for the Django API, including:
+- Django project files
+- Dockerfile and docker-compose.yml for containerization
+- Initial API application

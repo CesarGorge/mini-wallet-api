@@ -1,0 +1,7 @@
+django
+djangorestframework>=3.14
+psycopg2-binary>=2.9
+python-decouple
+web3>=6.0
+pytest
+pytest-django
