@@ -1,0 +1,25 @@
+{
+  "name": "wallet_api",
+  "version": "1.0.0",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.17.0",
+    "serverless-http": "^3.2.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "serverless": "^4.17.2",
+    "serverless-offline": "^14.4.0",
+    "supertest": "^7.1.4"
+  }
+}
