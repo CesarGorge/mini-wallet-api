@@ -17,7 +17,7 @@ class TransactionCreateView(APIView):
             balance_eth = w3.from_wei(balance_wei, 'ether')
 
             response_data = serializer.data
-            response_data['goerli_balance'] = {
+            response_data['testnet_balance'] = {
                 'balance_eth': str(balance_eth)
             }
 

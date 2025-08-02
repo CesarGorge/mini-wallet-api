@@ -20,8 +20,8 @@ class TransactionCreateAPITest(APITestCase):
         self.assertEqual(response.data['userId'], 'user123')
         self.assertEqual(Decimal(response.data['amount']), Decimal('100.50'))
         self.assertEqual(response.data['currency'], 'BTC')
-        self.assertIn('goerli_balance', response.data)
-        self.assertEqual(response.data['goerli_balance']['balance_eth'], '1.0')
+        self.assertIn('testnet_balance', response.data)
+        self.assertEqual(response.data['testnet_balance']['balance_eth'], '1.0')
 
         expected_infura_url = config('INFURA_URL')
         expected_wallet = config('SAMPLE_WALLET_ADDRESS')
