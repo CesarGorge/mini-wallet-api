@@ -22,7 +22,7 @@ class TransactionCreateAPITest(APITestCase):
         self.assertIn('goerli_balance', response.data)
         self.assertEqual(response.data['goerli_balance']['balance_eth'], '1.0')
 
-        expected_infura_url = 'https://goerli.infura.io/v3/c3811ead81154c27adeafb19b0452000'
+        expected_infura_url = 'https://mainnet.infura.io/v3/c3811ead81154c27adeafb19b0452000'
         MockWeb3.assert_called_once_with(MockWeb3.HTTPProvider(expected_infura_url))
         mock_w3_instance.eth.get_balance.assert_called_once_with('0x0000000000000000000000000000000000000000')
 
