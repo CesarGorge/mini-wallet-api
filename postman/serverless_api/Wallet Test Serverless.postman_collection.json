@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2172e00b-a823-4445-b862-6d85220454ae",
-		"name": "Wallet Test",
+		"name": "Wallet Test Serverless",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28581445"
 	},
