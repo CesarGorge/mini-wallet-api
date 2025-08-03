@@ -26,10 +26,10 @@ db.sqlite3-journal
 # Node
 node_modules/
 /serverless_api/node_modules/
+/serverless_api/.env
 npm-debug.log
 yarn-error.log
 yarn-debug.log
-/serverless_api/.env
 .npm
 pids
 *.pid
