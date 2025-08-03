@@ -29,12 +29,14 @@ node_modules/
 npm-debug.log
 yarn-error.log
 yarn-debug.log
+/serverless_api/.env
 .npm
 pids
 *.pid
 *.seed
 *.log
 *.out
+.env
 
 # OS generated files
 .DS_Store

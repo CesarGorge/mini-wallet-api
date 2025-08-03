@@ -15,7 +15,7 @@ functions:
     handler: handler.main
     events:
       - httpApi:
-          path: /api/{proxy+}
+          path: /{proxy+}
           method: any
   docs:
     handler: docs-handler.main
