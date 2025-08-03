@@ -1,0 +1,28 @@
+service: serverless-wallet-api
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+
+functions:
+  api:
+    handler: handler.main
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: any
+  docs:
+    handler: docs-handler.main
+    events:
+      - httpApi:
+          path: /docs
+          method: any
+      - httpApi:
+          path: /docs/{proxy+}
+          method: any

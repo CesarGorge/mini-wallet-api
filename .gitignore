@@ -26,6 +26,7 @@ db.sqlite3-journal
 # Node
 node_modules/
 /serverless_api/node_modules/
+/serverless_api/.env
 npm-debug.log
 yarn-error.log
 yarn-debug.log
@@ -35,6 +36,7 @@ pids
 *.seed
 *.log
 *.out
+.env
 
 # OS generated files
 .DS_Store
