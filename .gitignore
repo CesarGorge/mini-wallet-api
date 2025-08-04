@@ -26,6 +26,8 @@ db.sqlite3-journal
 # Node
 node_modules/
 /serverless_api/node_modules/
+/serverless_api/env.prod.yml
+/serverless_api/.serverless
 /serverless_api/.env
 npm-debug.log
 yarn-error.log

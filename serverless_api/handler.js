@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require('uuid')
 const axios = require('axios')
 const jwt = require('jsonwebtoken')
 
-const Transaction = require('./models/Transaction')
+const Transaction = require('./models/transaction')
 const authenticateToken = require('./middleware/auth')
 
 const app = express()
