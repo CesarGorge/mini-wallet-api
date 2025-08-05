@@ -4,6 +4,10 @@ from rest_framework import status
 from .serializers import TransactionSerializer
 from decouple import config
 from web3 import Web3
+from django.views.generic import TemplateView
+
+class HomeView(TemplateView):
+    template_name = "home.html"
 
 class TransactionCreateView(APIView):
     def post(self, request, *args, **kwargs):
