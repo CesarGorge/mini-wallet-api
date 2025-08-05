@@ -170,10 +170,10 @@ docker compose up --build
 
 #### `django_api/.env`
 
-- `DB_HOST`: Host de la base de datos (`localhost` para desarrollo local, `db` para Docker).
-- `DB_NAME`: Nombre de la base de datos PostgreSQL.
-- `DB_USER`: Usuario de la base de datos.
-- `DB_PASSWORD`: Contraseña del usuario.
+- `POSTGRES_HOST`: Host de la base de datos (`localhost` para desarrollo local, `db` para Docker).
+- `POSTGRES_DB`: Nombre de la base de datos PostgreSQL.
+- `POSTGRES_USER`: Usuario de la base de datos.
+- `POSTGRES_PASSWORD`: Contraseña del usuario.
 - `INFURA_URL`: URL del nodo de Infura para la red de pruebas Sepolia (ej. `https://sepolia.infura.io/v3/YOUR_API_KEY`).
 - `SAMPLE_WALLET_ADDRESS`: Una dirección de wallet para consultar su saldo en la red de pruebas.
 

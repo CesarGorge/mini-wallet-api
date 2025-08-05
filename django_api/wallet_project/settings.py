@@ -77,7 +77,7 @@ DATABASES = {
         'NAME': 'cocolabs',
         'USER': 'coco',
         'PASSWORD': 'wallet',
-        'HOST': config('DB_HOST', default='localhost'),
+        'HOST': config('POSTGRES_HOST', default='localhost'),
         'PORT': '5432',
     }
 }
