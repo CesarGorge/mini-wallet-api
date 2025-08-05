@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-hqx@$z)6036@$5tcyjx9hj$i$!ac1h$#lt@63ve&&k*qny_(l@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web', 'localhost', '127.0.0.1', '.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['web', 'localhost', '127.0.0.1', '.elasticbeanstalk.com', 'mini-wallet-api-git-main-cesar-gorges-projects.vercel.app']
 
 
 # Application definition
