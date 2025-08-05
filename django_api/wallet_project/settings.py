@@ -74,11 +74,11 @@ WSGI_APPLICATION = 'wallet_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'cocolabs',
-        'USER': 'coco',
-        'PASSWORD': 'wallet',
+        'NAME': config('POSTGRES_NAME', default='cocolabs'),
+        'USER': config('POSTGRES_USER', default='coco'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='wallet'),
         'HOST': config('POSTGRES_HOST', default='localhost'),
-        'PORT': '5432',
+        'PORT': config('POSTGRES_PORT', default='5432'),
     }
 }
 
