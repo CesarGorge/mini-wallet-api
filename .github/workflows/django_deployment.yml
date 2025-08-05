@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Copy Django app to root
-        run: cp -r django_api/. .
+      - name: Create deployment package
+        run: zip -r deploy.zip django_api
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
@@ -24,3 +24,4 @@ jobs:
           application_name: "django_api"
           environment_name: "django-env"
           region: "us-east-1"
+          deployment_package: deploy.zip
