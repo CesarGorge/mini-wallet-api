@@ -22,12 +22,3 @@ functions:
       - httpApi:
           path: /{proxy+}
           method: any
-  docs:
-    handler: docs-handler.main
-    events:
-      - httpApi:
-          path: /docs
-          method: any
-      - httpApi:
-          path: /docs/{proxy+}
-          method: any
