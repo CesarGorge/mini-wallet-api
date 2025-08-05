@@ -13,9 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Copy Django app to root
+        run: cp -r django_api/. .
+
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
-        working-directory: ./django_api
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
