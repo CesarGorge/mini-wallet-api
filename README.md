@@ -10,7 +10,7 @@ Este repositorio incluye dos mini-proyectos: una API Serverless con Node.js y un
 
 ---
 
-🚀 Instrucciones de Despliegue en AWS (API Serverless)
+### 🚀 Instrucciones de Despliegue en AWS (API Serverless)
 Esta guía detalla los pasos necesarios para desplegar el proyecto serverless_api en un entorno de AWS desde cero.
 
 **1. Requisitos Previos**
