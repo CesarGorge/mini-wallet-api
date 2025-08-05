@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const { v4: uuidv4 } = require('uuid')
 const axios = require('axios')
 const jwt = require('jsonwebtoken')
+const docsRouter = require('./routes/docs')
 
 const Transaction = require('./models/transaction')
 const authenticateToken = require('./middleware/auth')
@@ -13,6 +14,7 @@ const authenticateToken = require('./middleware/auth')
 const app = express()
 app.use(express.json())
 
+app.use('/docs', docsRouter)
 
 if (process.env.NODE_ENV !== 'test') {
 	mongoose
@@ -74,12 +76,14 @@ app.use(dbConnectionMiddleware)
  *         application/json:
  *           schema:
  *             type: object
- *             required: [userId, email]
  *             properties:
  *               userId:
  *                 type: string
  *               email:
  *                 type: string
+ *             example:
+ *               userId: "user-test-123"
+ *               email: "test@example.com"
  *     responses:
  *       '200':
  *         description: Login exitoso, token devuelto.
@@ -112,20 +116,15 @@ app.use(authenticateToken)
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             required: [userId, amount, currency]
- *             properties:
- *               userId: { type: 'string' }
- *               amount: { type: 'number' }
- *               currency: { type: 'string' }
- *               status: { type: 'string', enum: ['pending', 'completed', 'failed'] }
+ *             $ref: '#/components/schemas/Transaction'
+ *           example:
+ *             userId: "user-test-123"
+ *             amount: 150.50
+ *             currency: "USDC"
+ *             status: "pending"
  *     responses:
  *       '201':
  *         description: Transacción creada.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Transaction'
  */
 app.post('/transactions', async (req, res) => {
 	try {
@@ -155,13 +154,10 @@ app.post('/transactions', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *         example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
  *     responses:
  *       '200':
  *         description: Transacción encontrada.
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Transaction'
  *       '404':
  *         description: Transacción no encontrada.
  */
@@ -189,15 +185,10 @@ app.get('/transactions/:txId', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *         example: "user-test-123"
  *     responses:
  *       '200':
  *         description: Lista de transacciones.
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Transaction'
  */
 app.get('/transactions', async (req, res) => {
 	try {
@@ -223,6 +214,7 @@ app.get('/transactions', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *         example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
  *     requestBody:
  *       required: true
  *       content:
@@ -230,13 +222,17 @@ app.get('/transactions', async (req, res) => {
  *           schema:
  *             type: object
  *             properties:
- *               amount: { type: 'number' }
- *               status: { type: 'string', enum: ['pending', 'completed', 'failed'] }
+ *               amount:
+ *                 type: number
+ *               status:
+ *                 type: string
+ *                 enum: [pending, completed, failed]
+ *             example:
+ *               amount: 200.75
+ *               status: "completed"
  *     responses:
  *       '200':
  *         description: Transacción actualizada.
- *       '404':
- *         description: Transacción no encontrada.
  */
 app.put('/transactions/:txId', async (req, res) => {
 	try {
@@ -267,11 +263,10 @@ app.put('/transactions/:txId', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *         example: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
  *     responses:
  *       '204':
  *         description: Transacción eliminada.
- *       '404':
- *         description: Transacción no encontrada.
  */
 app.delete('/transactions/:txId', async (req, res) => {
 	try {
@@ -297,6 +292,7 @@ app.delete('/transactions/:txId', async (req, res) => {
  *         required: true
  *         schema:
  *           type: string
+ *         example: "0xdAC17F958D2ee523a2206206994597C13D831ec7"
  *     responses:
  *       '200':
  *         description: Balance obtenido.
